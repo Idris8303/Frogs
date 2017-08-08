@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Frogs are Awesome!</title>
+    <link rel="stylesheet" href="/frogs.css">
+  </head>
+  <body>
+
+      <h1>Frogs</h1>
+
+
+
+    <form method="post" action="/frogs">
+      <input type="text" name="type" placeholder="type of item" value="{{item.item}}" />
+      <input type="number" name="size" placeholder="length of item in inches" value="{{item.size}}" />
+      <input type="string" name="color" placeholder="color of item" value= "{{item.color}}" />
+      <button type="submit">Add item</button>
+    </form>
+
+    {{#frogs}}
+    <form method="post" action="/frogs/delete/{{_id}}">
+      <button type="submit">Delete</button>
+      <div>{{type}} - {{size}} - {{color}} - {{}}</div>
+      </form>
+    {{/frogs}}
+
+  </body>
+</html>
